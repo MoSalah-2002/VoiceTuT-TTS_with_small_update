@@ -14,7 +14,7 @@ Quick start
 -----------
     from voicetut_tts import VoiceTutTTS
 
-    tts = VoiceTutTTS.from_pretrained("MohammedAly22/voicetut-tts")
+    tts = VoiceTutTTS.from_pretrained("mohammedaly22/VoiceTut-TTS")
 
     # built-in speaker
     tts.synthesize("ازيك عامل ايه؟", speaker="Mohamed", output="out.wav")
@@ -50,7 +50,7 @@ LANG_ALIASES = {
 DEFAULT_LANGUAGE = "arz"
 
 # Default HF repo (checkpoint + reference_speakers/ + references.json live here).
-DEFAULT_REPO = "MohammedAly22/voicetut-tts"
+DEFAULT_REPO = "mohammedaly22/VoiceTut-TTS"
 
 # sentence boundaries: Arabic + Latin punctuation
 _SENT_SPLIT = re.compile(r"(?<=[\.\!\?\؟\…\n])\s+|(?<=[\.\!\?\؟])(?=\S)")

@@ -33,20 +33,20 @@ Run this **on the pod** (where `hf` is logged in as you):
 
 ```bash
 # create the model repo (once)
-hf repo create MohammedAly22/VoiceTut-TTS --type model --exist-ok
+hf repo create mohammedaly22/VoiceTut-TTS --type model --exist-ok
 
 # upload the checkpoint weights + config + tokenizer
-hf upload MohammedAly22/VoiceTut-TTS \
+hf upload mohammedaly22/VoiceTut-TTS \
     /home/workspace/m.aly/OmniVoice-FT/OmniVoice/exp/omnivoice_egy/checkpoint-20000 . \
     --type model
 
 # upload the built-in speakers (so from_pretrained can fetch them)
-hf upload MohammedAly22/VoiceTut-TTS \
+hf upload mohammedaly22/VoiceTut-TTS \
     reference_speakers reference_speakers --type model
 #   ^ run from the VoiceTut-TTS repo dir, or give the absolute path to reference_speakers/
 
 # upload the model card (this overwrites the auto README)
-hf upload MohammedAly22/VoiceTut-TTS hf_model_card/README.md README.md --type model
+hf upload mohammedaly22/VoiceTut-TTS hf_model_card/README.md README.md --type model
 ```
 
 > CLI note: this `hf` version uses `--type` (not `--repo-type`), `--exist-ok` (not `-y`),
@@ -57,7 +57,7 @@ hf upload MohammedAly22/VoiceTut-TTS hf_model_card/README.md README.md --type mo
 
 Verify it loads:
 ```bash
-python -c "from voicetut_tts import VoiceTutTTS; VoiceTutTTS.from_pretrained('MohammedAly22/VoiceTut-TTS')"
+python -c "from voicetut_tts import VoiceTutTTS; VoiceTutTTS.from_pretrained('mohammedaly22/VoiceTut-TTS')"
 ```
 
 ---
@@ -68,13 +68,13 @@ A Space needs a **GPU** to run this TTS model (set hardware to a GPU tier in Spa
 
 ```bash
 # create the Space (gradio sdk). Optionally add hardware, e.g. --flavor t4-small
-hf repo create MohammedAly22/VoiceTut-TTS --type space --space-sdk gradio --exist-ok
+hf repo create mohammedaly22/VoiceTut-TTS --type space --space-sdk gradio --exist-ok
 
 # upload the Space files. If the plain repo id is rejected for a space,
 # prefix it with `spaces/` (i.e. spaces/MohammedAly22/VoiceTut-TTS).
-hf upload MohammedAly22/VoiceTut-TTS hf_space/README.md README.md --type space
-hf upload MohammedAly22/VoiceTut-TTS hf_space/requirements.txt requirements.txt --type space
-hf upload MohammedAly22/VoiceTut-TTS app.py app.py --type space
+hf upload mohammedaly22/VoiceTut-TTS hf_space/README.md README.md --type space
+hf upload mohammedaly22/VoiceTut-TTS hf_space/requirements.txt requirements.txt --type space
+hf upload mohammedaly22/VoiceTut-TTS app.py app.py --type space
 ```
 
 Then in the Space UI → **Settings → Hardware → pick a GPU** (e.g. T4/L4). The Space's
@@ -116,7 +116,7 @@ then commit & push. The page already has the players wired to those filenames.
 # generate VoiceTut samples (on the pod)
 python -c "
 from voicetut_tts import VoiceTutTTS
-t = VoiceTutTTS.from_pretrained('MohammedAly22/VoiceTut-TTS')
+t = VoiceTutTTS.from_pretrained('mohammedaly22/VoiceTut-TTS')
 t.synthesize('ازيك عامل ايه النهاردة؟ يا رب تكون كويس وكله تمام.', speaker='Mohamed', output='docs/audio/eg1_voicetut.wav')
 # ... repeat for eg2/cs1/cs2/clone1 per docs/audio/README.md
 "

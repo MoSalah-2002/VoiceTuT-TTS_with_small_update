@@ -6,8 +6,8 @@
 
 **The best open-source text-to-speech model for Egyptian Arabic & code-switching**
 
-[![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/MohammedAly22/VoiceTut-TTS)
-[![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS)
+[![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/mohammedaly22/VoiceTut-TTS)
+[![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS)
 [![🎧 Samples](https://img.shields.io/badge/🎧%20Audio-Demos-ff9800)](https://mohammedaly22.github.io/VoiceTuT-TTS/)
 [![PyPI](https://img.shields.io/pypi/v/voicetut-tts?color=blue&label=PyPI)](https://pypi.org/project/voicetut-tts/)
 [![Base](https://img.shields.io/badge/Base-OmniVoice-purple)](https://github.com/k2-fsa/OmniVoice)
@@ -16,7 +16,7 @@
 
 </div>
 
-> 🎧 **Listen:** hear VoiceTut-TTS vs. the base OmniVoice on Egyptian Arabic & code-switching → **[Audio demos](https://mohammedaly22.github.io/VoiceTuT-TTS/)** · 🚀 **Try it live:** **[HuggingFace Space](https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS)**
+> 🎧 **Listen:** hear VoiceTut-TTS vs. the base OmniVoice on Egyptian Arabic & code-switching → **[Audio demos](https://mohammedaly22.github.io/VoiceTuT-TTS/)** · 🚀 **Try it live:** **[HuggingFace Space](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS)**
 
 VoiceTut-TTS is an Egyptian-Arabic text-to-speech system fine-tuned from [OmniVoice](https://github.com/k2-fsa/OmniVoice) on ~380 hours of Egyptian podcast speech. It produces natural Egyptian speech with seamless **Arabic ↔ English code-switching**, ships **14 built-in studio voices**, supports **zero-shot voice cloning**, and includes a robust Egyptian-Arabic **text normalization** pipeline plus **true streaming** for long text.
 
@@ -85,7 +85,7 @@ pip install -e ".[web,dev]"
 ```python
 from voicetut_tts import VoiceTutTTS
 
-tts = VoiceTutTTS.from_pretrained("MohammedAly22/VoiceTut-TTS")
+tts = VoiceTutTTS.from_pretrained("mohammedaly22/VoiceTut-TTS")
 
 # 1) Built-in speaker
 tts.synthesize("ازيك عامل ايه النهاردة؟", speaker="Mohamed", output="out.wav")
@@ -176,7 +176,7 @@ OMNICLEO_SHARE=1 python app.py                  # public share link
 
 ## 🔗 Links
 
-- 🤗 Model: https://huggingface.co/MohammedAly22/VoiceTut-TTS
+- 🤗 Model: https://huggingface.co/mohammedaly22/VoiceTut-TTS
 - 📦 PyPI: https://pypi.org/project/voicetut-tts/
 - 🧠 Base model: https://github.com/k2-fsa/OmniVoice
 - 🎧 Companion ASR: https://github.com/MohammedAly22/qwencleo-asr

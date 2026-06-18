@@ -26,8 +26,8 @@ base_model:
 
 **The best open-source text-to-speech model for Egyptian Arabic & code-switching**
 
-[![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/MohammedAly22/VoiceTut-TTS)
-[![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS)
+[![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/mohammedaly22/VoiceTut-TTS)
+[![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS)
 [![PyPI](https://img.shields.io/pypi/v/voicetut-tts?color=blue&label=PyPI)](https://pypi.org/project/voicetut-tts/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github)](https://github.com/MohammedAly22/VoiceTuT-TTS)
 [![Base](https://img.shields.io/badge/Base-OmniVoice-purple)](https://github.com/k2-fsa/OmniVoice)
@@ -42,7 +42,7 @@ VoiceTut-TTS is an Egyptian-Arabic text-to-speech model fine-tuned from [OmniVoi
 ## 🔗 Links
 
 - 🎧 **Audio demo (samples vs. base OmniVoice):** https://mohammedaly22.github.io/VoiceTuT-TTS/
-- 🚀 **Interactive Space:** https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS
+- 🚀 **Interactive Space:** https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS
 - 💻 **GitHub (code, notebooks):** https://github.com/MohammedAly22/VoiceTuT-TTS
 - 📦 **PyPI:** https://pypi.org/project/voicetut-tts/
 - 🎙️ **Companion ASR:** https://github.com/MohammedAly22/qwencleo-asr
@@ -69,7 +69,7 @@ pip install voicetut-tts
 ```python
 from voicetut_tts import VoiceTutTTS
 
-tts = VoiceTutTTS.from_pretrained("MohammedAly22/VoiceTut-TTS")
+tts = VoiceTutTTS.from_pretrained("mohammedaly22/VoiceTut-TTS")
 
 # 1) Built-in speaker
 tts.synthesize("ازيك عامل ايه النهاردة؟", speaker="Mohamed", output="out.wav")
@@ -97,7 +97,7 @@ tts.synthesize_long(long_paragraph, "long.wav", speaker="Sayed")
 |---|---|---|
 | Names | Abdelrahman, Abdullah, Kamal, Hossam, Mohamed, Omar, Sayed, Zaki, Aly | Asmaa, Esraa, Hanan, Sarah, Yasmin |
 
-Each voice ships with a reference clip + Arabic style tags (e.g. `شبابي`, `حيوي`, `هادي`). Browse and listen in the [Space](https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS).
+Each voice ships with a reference clip + Arabic style tags (e.g. `شبابي`, `حيوي`, `هادي`). Browse and listen in the [Space](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS).
 
 ## 📊 Performance
 
