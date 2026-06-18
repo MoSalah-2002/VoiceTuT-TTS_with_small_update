@@ -39,13 +39,6 @@ VoiceTut-TTS is an Egyptian-Arabic text-to-speech model fine-tuned from [OmniVoi
 
 > **Why "VoiceTut"?** *Tut* — after the boy-king **Tutankhamun** (توت عنخ آمون) — anchors the model in Egyptian identity, just as our companion ASR model **[QwenCleo-ASR](https://github.com/MohammedAly22/qwencleo-asr)** is named after **Cleopatra**. Together they form an Egyptian speech stack: **Cleo listens, Tut speaks.** 🎙️🗣️
 
-## 🔗 Links
-
-- 🎧 **Audio demo (samples vs. base OmniVoice):** https://mohammedaly22.github.io/VoiceTuT-TTS/
-- 🚀 **Interactive Space:** https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS
-- 💻 **GitHub (code, notebooks):** https://github.com/MohammedAly22/VoiceTuT-TTS
-- 📦 **PyPI:** https://pypi.org/project/voicetut-tts/
-- 🎙️ **Companion ASR:** https://github.com/MohammedAly22/qwencleo-asr
 
 ## ✨ Features
 
@@ -99,23 +92,12 @@ tts.synthesize_long(long_paragraph, "long.wav", speaker="Sayed")
 
 Each voice ships with a reference clip + Arabic style tags (e.g. `شبابي`, `حيوي`, `هادي`). Browse and listen in the [Space](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS).
 
-## 📊 Performance
-
-> Single **NVIDIA H100 80GB**, `float16`, `num_step=32`. Indicative numbers.
-
-| Metric | Value |
-|---|---|
-| Real-time factor (RTF) | **~0.10** (≈10× faster than real-time) |
-| Time-to-first-audio (streaming) | **~0.4–0.7 s** |
-| Peak VRAM (fp16) | **~6.5 GB** |
-| Sampling rate | 24 kHz |
-| Speaker similarity (cloning) | **0.78** |
 
 ## 🏗️ Training
 
 - **Base model:** [k2-fsa/OmniVoice](https://github.com/k2-fsa/OmniVoice) (Qwen3-0.6B text backbone + Higgs audio tokenizer)
 - **Data:** ~380 h Egyptian-Arabic YouTube podcasts (`language_id = arz`)
-- **Steps:** 20,000 · **LR:** 3e-5 · **bf16** · 1× H100
+- **Steps:** 20,000 · **LR:** 3e-5 · **bf16**
 
 ## 📜 License & Citation
 
