@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceTut-TTS — Audio Demos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --blue:#2f6bff; --blue-bright:#4f86ff; --blue-dim:rgba(47,107,255,.14);
+      --bg:#000; --surface:#0f0f12; --surface2:#16161b; --border:#222228;
+      --text:#f5f6f8; --muted:#8a8d96; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Cairo','Inter',system-ui,sans-serif; background:var(--bg); color:var(--text);
+      min-height:100vh; padding-bottom:60px; }
+    .wrap { max-width:1100px; margin:0 auto; padding:0 20px; }
+
+    /* hero */
+    header.hero { text-align:center; padding:48px 20px 30px; }
+    header.hero img { width:100%; max-width:980px; border-radius:22px;
+      box-shadow:0 24px 70px rgba(0,0,0,.7); margin-bottom:26px; }
+    header.hero h1 { font-size:34px; font-weight:800; letter-spacing:-.5px; }
+    header.hero h1 .accent { background:linear-gradient(90deg,#4f86ff,#8ab0ff);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    header.hero p { color:var(--muted); margin-top:10px; font-size:16px; }
+
+    /* nav buttons */
+    .links { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:24px 0 8px; }
+    .links a { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:30px;
+      font-weight:700; font-size:14px; text-decoration:none; border:1px solid var(--border);
+      color:var(--text); background:var(--surface2); transition:all .2s ease; }
+    .links a:hover { border-color:var(--blue); transform:translateY(-2px);
+      box-shadow:0 8px 24px var(--blue-dim); }
+    .links a.primary { background:var(--blue); border-color:transparent; }
+    .links a.primary:hover { background:var(--blue-bright); }
+
+    /* section */
+    section { margin-top:46px; }
+    section h2 { font-size:22px; font-weight:800; margin-bottom:6px; display:flex; align-items:center; gap:10px; }
+    section .sub { color:var(--muted); font-size:14px; margin-bottom:20px; }
+
+    /* sample card */
+    .sample { background:var(--surface); border:1px solid var(--border); border-radius:18px;
+      padding:20px 22px; margin-bottom:18px; box-shadow:0 12px 36px rgba(0,0,0,.4); }
+    .sample .meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .sample .tag { font-size:12px; font-weight:800; padding:4px 12px; border-radius:16px;
+      background:var(--blue-dim); color:var(--blue-bright);
+      border:1px solid rgba(47,107,255,.3); }
+    .sample .tag.cs { background:rgba(255,180,60,.12); color:#ffc04d; border-color:rgba(255,180,60,.3); }
+    .sample .tag.spk { background:rgba(160,160,170,.12); color:#cfd3da; border-color:#33333b; }
+    .sample .text { font-size:17px; line-height:1.9; margin:8px 0 18px; }
+
+    /* AB compare */
+    .ab { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:680px){ .ab { grid-template-columns:1fr; } }
+    .ab .col { background:var(--surface2); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+    .ab .col.ours { border-color:rgba(47,107,255,.4); box-shadow:0 0 0 1px rgba(47,107,255,.15) inset; }
+    .ab .label { display:flex; align-items:center; gap:8px; font-weight:800; font-size:14px; margin-bottom:10px; }
+    .ab .label .dot { width:9px; height:9px; border-radius:50%; }
+    .ab .ours .dot { background:var(--blue); }
+    .ab .base .dot { background:#777; }
+    audio { width:100%; height:40px; filter:invert(.92) hue-rotate(180deg); border-radius:8px; }
+    .placeholder { color:var(--muted); font-size:13px; text-align:center; padding:11px;
+      border:1px dashed #2c2c34; border-radius:10px; }
+
+    footer { text-align:center; color:var(--muted); font-size:13px; margin-top:60px; }
+    footer a { color:var(--blue-bright); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <img src="../assets/VoiceTut-TTS-Banner.png" alt="VoiceTut-TTS" />
+      <h1>VoiceTut<span class="accent">-TTS</span> — عينات صوتية</h1>
+      <p>قارن صوت VoiceTut-TTS (المُحسَّن للمصري) بالموديل الأساسي OmniVoice<br/>
+         Compare VoiceTut-TTS vs. the base OmniVoice on Egyptian Arabic & code-switching</p>
+      <div class="links">
+        <a class="primary" href="https://huggingface.co/spaces/MohammedAly22/VoiceTut-TTS">🚀 جرّب الموديل / Live Demo</a>
+        <a href="https://huggingface.co/MohammedAly22/VoiceTut-TTS">🤗 Model</a>
+        <a href="https://github.com/MohammedAly22/VoiceTuT-TTS">💻 GitHub</a>
+        <a href="https://pypi.org/project/voicetut-tts/">📦 PyPI</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ============ Pure Egyptian Arabic ============ -->
+    <section>
+      <h2>🗣️ مصري خالص / Pure Egyptian Arabic</h2>
+      <p class="sub">جمل مصرية طبيعية بدون أي كلمات إنجليزية.</p>
+
+      <!-- SAMPLE TEMPLATE: duplicate a .sample block per example.
+           Drop the wav files into docs/audio/ and update the <source src="..."> paths. -->
+      <div class="sample">
+        <div class="meta">
+          <span class="tag">مصري</span>
+          <span class="tag spk">Mohamed</span>
+        </div>
+        <div class="text">ازيك عامل ايه النهاردة؟ يا رب تكون كويس وكله تمام.</div>
+        <div class="ab">
+          <div class="col ours">
+            <div class="label"><span class="dot"></span>VoiceTut-TTS</div>
+            <audio controls preload="none"><source src="audio/eg1_voicetut.wav" type="audio/wav"></audio>
+          </div>
+          <div class="col base">
+            <div class="label"><span class="dot"></span>OmniVoice (base)</div>
+            <audio controls preload="none"><source src="audio/eg1_base.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="sample">
+        <div class="meta">
+          <span class="tag">مصري</span>
+          <span class="tag spk">Yasmin</span>
+        </div>
+        <div class="text">احنا اتفقنا نتقابل بكرة الصبح، فمتتأخرش عشان عندنا حاجات كتير نخلصها.</div>
+        <div class="ab">
+          <div class="col ours">
+            <div class="label"><span class="dot"></span>VoiceTut-TTS</div>
+            <audio controls preload="none"><source src="audio/eg2_voicetut.wav" type="audio/wav"></audio>
+          </div>
+          <div class="col base">
+            <div class="label"><span class="dot"></span>OmniVoice (base)</div>
+            <audio controls preload="none"><source src="audio/eg2_base.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Code-switching ============ -->
+    <section>
+      <h2>🔀 تبديل اللغة / Code-Switching</h2>
+      <p class="sub">جمل مصرية فيها كلمات إنجليزية — التحدي الأساسي اللي اتدرب عليه الموديل.</p>
+
+      <div class="sample">
+        <div class="meta">
+          <span class="tag cs">Code-switching</span>
+          <span class="tag spk">Asmaa</span>
+        </div>
+        <div class="text">عندي meeting الساعة 3:30 ومعايا ال presentation، فياريت تكون جاهز.</div>
+        <div class="ab">
+          <div class="col ours">
+            <div class="label"><span class="dot"></span>VoiceTut-TTS</div>
+            <audio controls preload="none"><source src="audio/cs1_voicetut.wav" type="audio/wav"></audio>
+          </div>
+          <div class="col base">
+            <div class="label"><span class="dot"></span>OmniVoice (base)</div>
+            <audio controls preload="none"><source src="audio/cs1_base.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="sample">
+        <div class="meta">
+          <span class="tag cs">Code-switching</span>
+          <span class="tag spk">Sayed</span>
+        </div>
+        <div class="text">القصة دي اتكتبت في كتاب اسمه The Travels of Marco Polo، وبيوري الناس ان العالم أكبر من اللي فاكرينه.</div>
+        <div class="ab">
+          <div class="col ours">
+            <div class="label"><span class="dot"></span>VoiceTut-TTS</div>
+            <audio controls preload="none"><source src="audio/cs2_voicetut.wav" type="audio/wav"></audio>
+          </div>
+          <div class="col base">
+            <div class="label"><span class="dot"></span>OmniVoice (base)</div>
+            <audio controls preload="none"><source src="audio/cs2_base.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Voice cloning ============ -->
+    <section>
+      <h2>🧬 استنساخ صوت / Zero-shot Voice Cloning</h2>
+      <p class="sub">استنساخ صوت من مرجع قصير.</p>
+
+      <div class="sample">
+        <div class="meta">
+          <span class="tag spk">Custom reference</span>
+        </div>
+        <div class="text">أنا بجرب الصوت الجديد، وان شاء الله يطلع حلو وطبيعي زي ما احنا عايزين.</div>
+        <div class="ab">
+          <div class="col ours">
+            <div class="label"><span class="dot"></span>VoiceTut-TTS (clone)</div>
+            <audio controls preload="none"><source src="audio/clone1_voicetut.wav" type="audio/wav"></audio>
+          </div>
+          <div class="col base">
+            <div class="label"><span class="dot"></span>Reference</div>
+            <audio controls preload="none"><source src="audio/clone1_reference.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    VoiceTut-TTS · <a href="https://github.com/MohammedAly22/VoiceTuT-TTS">GitHub</a> ·
+    <a href="https://huggingface.co/MohammedAly22/VoiceTut-TTS">HuggingFace</a> ·
+    شقيق <a href="https://github.com/MohammedAly22/qwencleo-asr">QwenCleo-ASR</a>
+  </footer>
+</body>
+</html>

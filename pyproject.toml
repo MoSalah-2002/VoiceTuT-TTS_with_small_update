@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voicetut-tts"
+version = "0.1.0"
+description = "VoiceTut-TTS — Egyptian Arabic & code-switching text-to-speech (fine-tuned OmniVoice)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Mohammed Aly" }]
+keywords = ["tts", "text-to-speech", "egyptian-arabic", "arabic", "code-switching", "omnivoice"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # The model backbone. Installs the OmniVoice package the checkpoint depends on.
+    "omnivoice @ git+https://github.com/k2-fsa/OmniVoice.git",
+    "numpy",
+    "soundfile",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+web = ["gradio>=4.0"]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/MohammedAly22/voicetut-tts"
+Model = "https://huggingface.co/MohammedAly22/voicetut-tts"
+Repository = "https://github.com/MohammedAly22/voicetut-tts"
+
+[project.scripts]
+voicetut = "voicetut_tts.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["voicetut_tts*"]
+
+[tool.setuptools.package-data]
+voicetut_tts = ["data/*.csv"]
+# (data/diacritics.csv, data/names_en_ar.csv)

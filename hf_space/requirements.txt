@@ -1,0 +1,5 @@
+# VoiceTut-TTS Space dependencies.
+# OmniVoice (the model backbone) + this package, pulled from GitHub.
+torch
+voicetut-tts @ git+https://github.com/MohammedAly22/VoiceTuT-TTS.git
+gradio>=4.0

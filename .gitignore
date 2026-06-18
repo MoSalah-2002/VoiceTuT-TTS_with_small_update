@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+out/
+*.wav
+!reference_speakers/*.wav
+!docs/audio/*.wav
+.env
+.venv/
