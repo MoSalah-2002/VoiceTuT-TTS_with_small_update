@@ -15,6 +15,25 @@ import os
 
 import gradio as gr
 
+# HuggingFace ZeroGPU support: GPU is allocated per-request inside @spaces.GPU functions.
+# Guarded so the app still runs locally / on a dedicated GPU without the `spaces` package.
+try:
+    import spaces
+    _ZEROGPU = True
+except ImportError:
+    _ZEROGPU = False
+
+    class _NoSpaces:                     # no-op decorator fallback
+        @staticmethod
+        def GPU(*dargs, **dkwargs):
+            def deco(fn):
+                return fn
+            # support both @spaces.GPU and @spaces.GPU(duration=...)
+            if len(dargs) == 1 and callable(dargs[0]) and not dkwargs:
+                return dargs[0]
+            return deco
+    spaces = _NoSpaces()
+
 from voicetut_tts import VoiceTutTTS, GenerationParams
 from voicetut_tts.engine import DEFAULT_REPO
 
@@ -163,6 +182,7 @@ def _lang_code(language):
     return "en" if "English" in (language or "") else "arz"
 
 
+@spaces.GPU(duration=120)
 def gen_builtin(speaker_name, text, language, num_step, guidance, speed, normalize):
     if not text or not text.strip():
         raise gr.Error("اكتب النص الأول من فضلك")
@@ -173,6 +193,7 @@ def gen_builtin(speaker_name, text, language, num_step, guidance, speed, normali
     return (TTS.sampling_rate, wav)
 
 
+@spaces.GPU(duration=120)
 def gen_clone(ref_audio, ref_text, text, language, num_step, guidance, speed, normalize):
     if not text or not text.strip():
         raise gr.Error("اكتب النص الأول")
@@ -224,8 +245,9 @@ def _chunk_to_wav_bytes(sr, wav):
     return buf.getvalue()
 
 
+@spaces.GPU(duration=180)
 def stream_tts(text, speaker_name, ref_audio, ref_text, language,
-               num_step, guidance, speed, normalize, *, use_clone):
+               num_step, guidance, speed, normalize, use_clone=False):
     """Stream long text sentence-by-sentence: yields (audio_chunk, metrics_html)."""
     import time
     if not text or not text.strip():

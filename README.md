@@ -4,7 +4,7 @@
 
 # 𓋹 VoiceTut-TTS
 
-**The best open-source text-to-speech model for Egyptian Arabic & code-switching**
+**An open-source text-to-speech model for Egyptian Arabic & code-switching**
 
 [![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/mohammedaly22/VoiceTut-TTS)
 [![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS)
@@ -127,7 +127,7 @@ norm("عندي 250 جنيه والميعاد 3:30 يوم 14/3/2024")
 | Input | Output (spoken) |
 |---|---|
 | `3:30` / `7:45` / `9:50` | تلاتة و نص / تمانية الا ربع / عشرة الا عشرة *(colloquial Egyptian clock)* |
-| `01147450629` | زيرو حداشر سبعة وأربعين خمسة وأربعين ستة تسعة وعشرين *(Egyptian prefix + 2-digit groups)* |
+| `01147450629` | زيرو حْدَاشَر، سَبْعَه وأَرْبِعين، خَمْسَه وأَرْبِعين، زيرو سِتَّه، تِسْعَه وعِشْرين *(Egyptian prefix + 2-digit groups, paused)* |
 | `Ahmed` / `Mohamed` / `Mona` | أحمد / محمد / منى *(English→Arabic name map)* |
 | `250 جنيه` / `75$` / `25%` | ميتين وخمسين جنيه / خمسة وسبعين دولار / خمسة وعشرين في المية |
 | `14/3/2024` | أربعتاشر مارس ألفين وأربعة وعشرين |

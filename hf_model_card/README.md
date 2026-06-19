@@ -24,7 +24,7 @@ base_model:
 
 # 𓋹 VoiceTut-TTS
 
-**The best open-source text-to-speech model for Egyptian Arabic & code-switching**
+**An open-source text-to-speech model for Egyptian Arabic & code-switching**
 
 [![🤗 Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/mohammedaly22/VoiceTut-TTS)
 [![🤗 Space](https://img.shields.io/badge/🤗%20Space-Demo-blue)](https://huggingface.co/spaces/mohammedaly22/VoiceTut-TTS)
