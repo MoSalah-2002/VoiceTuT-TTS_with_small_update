@@ -76,8 +76,12 @@ import numpy as np
 import torch
 import IPython.display as ipd
 import sys
-from app import VoiceTutTTS
+import os
+os.chdir("/content/VoiceTuT-TTS_with_small_update")
 sys.path.insert(1,"/content/VoiceTuT_TTS_with_small_update")
+from app import VoiceTutTTS
+
+
 
 from voicetut_tts import VoiceTutTTS
 
