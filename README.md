@@ -77,8 +77,10 @@ import torch
 import IPython.display as ipd
 import sys
 import os
-os.chdir("/content/VoiceTuT-TTS_with_small_update")
-sys.path.insert(1,"/content/VoiceTuT_TTS_with_small_update")
+#Place the current path in the VoiceTuT-TTS_with_small_update folder
+os.chdir("../VoiceTuT-TTS_with_small_update")
+#insert path in using sys
+sys.path.insert(1,"../VoiceTuT_TTS_with_small_update")
 from app import VoiceTutTTS
 
 
